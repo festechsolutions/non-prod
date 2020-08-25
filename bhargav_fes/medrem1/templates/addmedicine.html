@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+<br/>
+<h2>Add Medicines Here..</h2>
+<br />
+<form method="POST" action="{% url 'addmedicine' %}">
+{% csrf_token %}
+Med Name:
+<br />
+<input type="text" name="medname" />
+<br />
+Duration:
+<br />
+<input type="textbox" name="duration" />
+<br />
+<h3>24hrs format</h3>
+Morning med:
+<br />
+<input type="textbox" name="time1" />
+<br />
+Noon med:
+<br />
+<input type="textbox" name="time2" />
+<br />
+Evng med:
+<br />
+<input type="textbox" name="time3" />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="Add Medicine"/>
+</form>
+{% endblock %}
